@@ -21,7 +21,7 @@ public class TwoActivity extends Activity {
 
     }
     private void play_mp4() {
-        String videoUrl1 = "android.resource://" + getPackageName() + "/" + R.raw.yuanshen2;
+        String videoUrl1 = "android.resource://" + getPackageName() + "/" + R.raw.yuanshen1;
         Uri uri = Uri.parse( videoUrl1 );
         videoView = (VideoView) findViewById(R.id.videoView);
 
