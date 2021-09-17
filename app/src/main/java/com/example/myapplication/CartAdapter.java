@@ -64,44 +64,14 @@ public class CartAdapter extends BaseAdapter {
             else vh.checkBox.setChecked(true);
             HashMap<String,String> map=dataList.get(position);
             vh.name.setText(map.get("name"));
-            vh.num.setText(map.get("count"));
             vh.type.setText(map.get("type"));
-            vh.price.setText("￥ "+(Double.valueOf(map.get("price")) * Integer.valueOf(map.get("count"))));
+            vh.price.setText("$ "+(Double.valueOf(map.get("price"))));
 
             vh.checkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     final int index=position;
                     if(((CheckBox)view).isChecked())pitchOnMap.put(dataList.get(index).get("id"),1);else pitchOnMap.put(dataList.get(index).get("id"),0);
-                    refreshPriceInterface.refreshPrice(pitchOnMap);
-                }
-            });
-            vh.reduce.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    final int index=position;
-                    dataList.get(index).put("count",(Integer.valueOf(dataList.get(index).get("count"))-1)+"");
-                    if(Integer.valueOf(dataList.get(index).get("count"))<=0){
-                        //可提示是否删除该商品,确定就remove,否则就保留1
-                        String deID=dataList.get(index).get("id");
-                        dataList.remove(index);
-                        pitchOnMap.remove(deID);
-                    }
-                    notifyDataSetChanged();
-                    refreshPriceInterface.refreshPrice(pitchOnMap);
-                }
-            });
-            vh.add.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    final int index=position;
-                    dataList.get(index).put("count",(Integer.valueOf(dataList.get(index).get("count"))+1)+"");
-                    if(Integer.valueOf(dataList.get(index).get("count"))>15){
-                        //15为库存可选择上限
-                        Toast.makeText(context,"已达库存上限~",Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    notifyDataSetChanged();
                     refreshPriceInterface.refreshPrice(pitchOnMap);
                 }
             });
