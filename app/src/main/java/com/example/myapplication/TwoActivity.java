@@ -37,7 +37,6 @@ public class TwoActivity extends Activity implements CartAdapter.RefreshPriceInt
         initDate();
     }
 
-    //控制价格展示
     private void priceControl(Map<String, Integer> pitchOnMap){
         totalCount = 0;
         totalPrice = 0.00;
@@ -65,15 +64,14 @@ public class TwoActivity extends Activity implements CartAdapter.RefreshPriceInt
                 break;
             case R.id.tv_go_to_pay:
                 if(totalCount<=0){
-                    Toast.makeText(this,"请选择要付款的商品~",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"select product",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(this,"钱就是另一回事了~",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"good",Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
-    //全选或反选
     private void AllTheSelected(){
         Map<String,Integer> map=adapter.getPitchOnMap();
         boolean isCheck=false;
@@ -121,7 +119,7 @@ public class TwoActivity extends Activity implements CartAdapter.RefreshPriceInt
 
     private void initDate(){
         goodsList=new ArrayList<>();
-        for(int i=0;i<10;i++){
+        for(int i=0;i<5;i++){
             HashMap<String,String> map=new HashMap<>();
             map.put("id",(new Random().nextInt(10000)%(10000-2900+2900) + 2900)+"");
             map.put("name","Cart "+(i+1)+" product");

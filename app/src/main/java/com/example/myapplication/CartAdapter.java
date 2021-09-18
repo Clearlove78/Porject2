@@ -8,17 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by lipeng
- * 2017/6/5.
- */
 
 public class CartAdapter extends BaseAdapter {
 
